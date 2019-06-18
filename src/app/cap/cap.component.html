@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  
+  <div class="card" style="margin-top: 1%">
+    <div class="card-body" style="background-color: #e0e0eb">
+      <form class="form">
+        <div *ngFor="let el of capList" class="inputGroup">
+          <input [id]="el.id" [disabled]="el.status" [name]="el.id" type="" />
+          <label [for]="el.id" [style.background-color]="el.isEditEnable && el.status?'#7ad190':'' || 
+          el.isEditEnable && !el.status?'#ed6a6a':''">
+            {{el.id}}. {{el.item}}
+            <span style="float: right;">
+              <a (click)="yesResponse(el.id)"><i class="far fa-check-circle" style="color:green" *ngIf="!el.isEditEnable"></i></a>&nbsp;
+              <a (click)="crossResponse(el.id)"><i class="far fa-times-circle" style="color: red" *ngIf="!el.isEditEnable"></i></a>&nbsp;
+
+              <a (click)="editResponse(el.id)" data-toggle="tooltip" data-placement="top" title="Edit your response">
+                <i class="far fa-edit" *ngIf="el.isEditEnable"></i>
+              </a>
+            </span>
+          </label>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>

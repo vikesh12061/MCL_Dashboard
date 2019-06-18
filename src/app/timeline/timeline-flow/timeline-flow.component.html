@@ -1,0 +1,19 @@
+<div class="timeline-flow-wrapper">
+ 
+  <ul class="step-progress"> 
+   
+    <li class="step-progress-item list-edge" *ngIf="options.showTopEdge">
+        <span class="connector"></span>
+        <span class="status-text"></span>
+    </li>
+   
+   
+    <li *ngFor="let step of data; let i =index;" class="step-progress-item" [ngClass]="{'list-edge': i === data.length - 1 && options.showBottomEdge}">
+        <span class="connector" [ngStyle]="getStyles(step, 'connector-styles')"></span>
+        <span class="status-text" [ngStyle]="getStyles(step, 'text-styles')">{{step.step}}</span>
+        <span class="status-icon" [ngClass]="getStyles(step, 'icon-class')" [ngStyle]="getStyles(step, 'icon-styles')"></span>
+    </li>
+   
+  </ul>
+   
+</div>
